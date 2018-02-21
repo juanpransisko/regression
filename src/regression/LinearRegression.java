@@ -68,6 +68,10 @@ public class LinearRegression {
 	}
 
 
+        public void view_equation() {
+            
+        }
+        
 	// Getters and Setters ------------------------
 	public void set_x(double[] x) {
 		this.data_x = Arrays.copyOfRange(x, 0, x.length);
