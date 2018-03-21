@@ -5,8 +5,8 @@ import java.util.Arrays;
 
 public class LinearRegression {
 	
-	final int MAX = 10000;
-        
+	int MAX = 10000;
+		
 	private int idx = 0;
 	private int len = 0;
 	private double[] data_x;
@@ -21,7 +21,7 @@ public class LinearRegression {
 		this.len = x.length;
 		this.data_x = Arrays.copyOfRange(x, 0, x.length);
 		this.data_y = Arrays.copyOfRange(y, 0, y.length);
-                System.out.println(len);
+		System.out.println(len);
 	}
 
 	public LinearRegression() {
@@ -34,6 +34,7 @@ public class LinearRegression {
 		double Ex = 0.0;
 		double Ey = 0.0;
 		double Ex2 = 0.0;
+		double Ey2 = 0.0;
 		double Exy = 0.0;
 
 		// Check size if the same
@@ -47,6 +48,7 @@ public class LinearRegression {
 			Ex += data_x[idx];
 			Ey += data_y[idx];
 			Ex2 += data_x[idx] * data_x[idx];
+			Ey2 += data_y[idx] * data_y[idx];
 			Exy += data_x[idx] * data_y[idx];
 
 			idx ++;
@@ -55,6 +57,7 @@ public class LinearRegression {
 		System.out.println("Ex = " + Ex);
 		System.out.println("Ey = " + Ey);
 		System.out.println("Ex2 = " + Ex2);
+		System.out.println("Ey2 = " + Ey2);
 		System.out.println("Exy = " + Exy);
 
 		// Compute for a and b
@@ -64,14 +67,11 @@ public class LinearRegression {
 		System.out.println("a = " + a);
 		System.out.println("b = " + b);
 
-		return new double[]{a, b};
+		return new double[] {a, b};
 	}
 
 
-        public void view_equation() {
-            
-        }
-        
+		
 	// Getters and Setters ------------------------
 	public void set_x(double[] x) {
 		this.data_x = Arrays.copyOfRange(x, 0, x.length);
